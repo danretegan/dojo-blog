@@ -1,7 +1,6 @@
-import BlogList from 'BlogList';
-import useFetch from 'useFetch';
-
-const url = 'http://localhost:8000/blogs';
+import BlogList from './BlogList';
+import { url } from './constants';
+import useFetch from './useFetch';
 
 const Home = () => {
   const { data: blogs, isLoading, error } = useFetch(url);

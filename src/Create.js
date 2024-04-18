@@ -1,16 +1,27 @@
+import { url } from './constants';
 import { useState } from 'react';
 
 const Create = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [author, setAuthor] = useState('mario');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = event => {
     event.preventDefault();
 
     const blog = { title, body, author };
+    setIsLoading(true);
 
-    console.log(blog);
+    //* Cerere de tip POST către URL-ul specificat (url) folosind funcția fetch:
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(blog),
+    }).then(() => {
+      console.log('New blog added!');
+      setIsLoading(false);
+    });
   };
 
   return (
@@ -39,7 +50,9 @@ const Create = () => {
           <option value="yoshi">yoshi</option>
         </select>
 
-        <button>Add blog!</button>
+        {/* //*Buton cu functie loading: */}
+        {!isLoading && <button>Add blog!</button>}
+        {isLoading && <button disabled>Adding blog...</button>}
 
         <p>{title}</p>
         <p>{body}</p>

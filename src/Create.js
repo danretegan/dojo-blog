@@ -1,6 +1,5 @@
 import { url } from './constants';
 import { useState } from 'react';
-//* useNavigate  /navigate:
 import { useNavigate } from 'react-router-dom';
 
 const Create = () => {
@@ -8,7 +7,6 @@ const Create = () => {
   const [body, setBody] = useState('');
   const [author, setAuthor] = useState('mario');
   const [isLoading, setIsLoading] = useState(false);
-  //* useNavigate  /navigate:
   const navigate = useNavigate();
 
   const handleSubmit = event => {
@@ -17,7 +15,7 @@ const Create = () => {
     const blog = { title, body, author };
     setIsLoading(true);
 
-    //* handleSubmit: implementam functia fetch pentru adaugarea unui blog folosind metoda POST:
+    //* handleSubmit: implementam functia fetch pentru adaugarea unui blog folosind metoda POST. Dupa adaugare navigam la pagina Home ('/'):
     fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -25,7 +23,6 @@ const Create = () => {
     }).then(() => {
       console.log('New blog added!');
       setIsLoading(false);
-      //* useNavigate  /navigate:
       navigate('/');
     });
   };

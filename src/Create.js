@@ -13,7 +13,7 @@ const Create = () => {
     const blog = { title, body, author };
     setIsLoading(true);
 
-    //* Cerere de tip POST către URL-ul specificat (url) folosind funcția fetch:
+    //* handleSubmit: implementam functia fetch pentru adaugarea unui blog folosind metoda POST:
     fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

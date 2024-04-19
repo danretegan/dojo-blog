@@ -11,7 +11,6 @@ const useFetch = url => {
     setTimeout(() => {
       fetch(url, { signal: abortCont.signal })
         .then(response => {
-          console.info(response);
           if (!response.ok) {
             //! error coming back from server:
             throw Error('Nu am putut obtine datele');

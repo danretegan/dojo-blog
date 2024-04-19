@@ -1,3 +1,4 @@
+import NotFound from 'NotFound';
 import BlogDetails from './BlogDetails';
 import Create from './Create';
 import Home from './Home';
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/create" element={<Create />} />
             <Route path="/blogs/:id" element={<BlogDetails />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </div>

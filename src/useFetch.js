@@ -13,7 +13,7 @@ const useFetch = url => {
         .then(response => {
           console.info(response);
           if (!response.ok) {
-            // error coming back from server
+            //! error coming back from server:
             throw Error('Nu am putut obtine datele');
           }
           return response.json();
@@ -27,7 +27,7 @@ const useFetch = url => {
           if (err.name === 'AbortError') {
             console.info('fetch aborted!');
           } else {
-            // auto catches network / connection error
+            //! auto catches network /connection error:
             setError(err.message);
             console.error(err.message);
             setIsLoading(false);

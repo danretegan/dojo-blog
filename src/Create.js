@@ -1,11 +1,15 @@
 import { url } from './constants';
 import { useState } from 'react';
+//* useNavigate  /navigate:
+import { useNavigate } from 'react-router-dom';
 
 const Create = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [author, setAuthor] = useState('mario');
   const [isLoading, setIsLoading] = useState(false);
+  //* useNavigate  /navigate:
+  const navigate = useNavigate();
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -21,6 +25,8 @@ const Create = () => {
     }).then(() => {
       console.log('New blog added!');
       setIsLoading(false);
+      //* useNavigate  /navigate:
+      navigate('/');
     });
   };
 

@@ -70,3 +70,7 @@
  *
  * @license MIT
  */
+
+//! auto catches network /connection error:
+
+//! error coming back from server:
